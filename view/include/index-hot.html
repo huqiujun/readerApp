@@ -1,0 +1,34 @@
+<style type="text/css">
+  
+</style>
+<section class="channel">
+  <div class="channel-header">
+    <div class="channel-title">
+      本周最火
+    </div>
+    
+  </div>
+  <ul class="list">
+    <!-- 书籍列表中有两种书籍项(有图/无图) -->
+    <li class="book" v-for="item in hot">
+      <a :href="'/book?id=' + item.fiction_id ">
+        <div class="book-cover">
+          <img :src="item.cover">
+          <p class="book-finish-tag" v-if="item.finish">完结</p>
+        </div>
+
+        <div class="book-info">
+          <p class="book-title">{{item.title}}</p>
+          <p class="book-author">{{item.authors}}</p>
+          <p class="book-summary">{{item.summary}}</p>
+          <div class="book-tag-wrap">  <!-- 用一个容器包裹多个标签,便于设定边距 -->
+            <div class="book-tag" v-for="(tag, tag_index) in item.tags" v-if="tag_index<3">{{tag}}</div>
+          </div>
+        </div>
+      </a>
+
+
+    </li>
+
+  </ul>
+</section>

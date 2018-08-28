@@ -1,0 +1,40 @@
+<style type="text/css">
+  
+</style>
+<section class="channel">
+  <div class="channel-header">
+    <div class="channel-title">
+      男生最爱
+    </div>
+    
+  </div>
+  <ul class="list">
+    <!-- 书籍列表中有两种书籍项(有图/无图) -->
+    <li class="book" v-for="(item,index) in male" v-if="index > 0 && index < 9">
+      <a :href="'/book?id=' + item.fiction_id ">
+
+        <div class="book-cover">
+          <img :src="item.cover">
+          <p class="book-finish-tag" v-if="item.finish">完结</p>
+        </div>
+
+        <div class="book-info">
+          <p class="book-title">{{item.title}}</p>
+          <p class="book-author">{{item.authors}}</p>
+          <p class="book-summary">{{item.summary}}</p>
+          <div class="book-tag-wrap"> 
+            <div class="book-tag" v-for="(tag,index) in item.tags "  v-if="index<3">{{tag}}</div>
+          </div>
+        </div>        
+
+      </a>
+
+    </li>
+
+  </ul>
+
+  <div class="channel-footer">
+    <a href="javascript:;">换一换</a>
+    <a href="/male">男生频道</a>
+  </div>
+</section>

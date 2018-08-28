@@ -1,0 +1,48 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" type="text/css" href="./static/css/reset.css">
+
+	<link rel="stylesheet" href="/static/css/all.css"/>
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<% include include/common-header.html %>
+		<div v-for="(item,index) in items">
+			<div class="channel-group-header" >
+	    	<h2 class="channel-group-title">{{item.ad_name}}</h2>
+
+	  	</div>
+		  <ul class="list">
+		    <!-- 书籍列表中有两种书籍项(有图/无图) -->
+		    <li class="book" v-for="book in item.data.data">
+		      <a :href="'/book?id=' + book.fiction_id ">
+
+		        <div class="book-cover">
+		          <img :src="book.cover">
+		          <p class="book-finish-tag" v-if="book.finish">完结</p>
+		        </div>
+
+		        <div class="book-info">
+		          <p class="book-title">{{book.title}}</p>
+		          <p class="book-author">{{book.authors}}</p>
+		          <p class="book-summary">{{book.summary}}</p>
+		          <div class="book-tag-wrap">  <!-- 用一个容器包裹多个标签,便于设定边距 -->
+		            <div class="book-tag" v-for="(tag, tag_index) in book.tags" v-if="tag_index<3">{{tag}}</div>
+		          </div>
+		        </div>
+
+		      </a>
+		    </li>
+		  </ul>
+
+		</div>
+	</div>
+	<script src="/static/script/vue.js"></script>
+	<script src="/static/script/zepto.js"></script>
+	<script src="/static/script/pages/channel.js"></script>
+</body>
+</html>

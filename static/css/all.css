@@ -1,0 +1,436 @@
+.root {
+      /*width: 734px;*/
+      height: 100%; 
+      /*高度百分比的条件是body设置了高度（100%），否则会无效 */
+}
+.container-wrap {
+  height: 100%;
+  width: 100%;
+
+  position: relative;
+}
+
+.header-tab {
+    padding: 0 90px;
+    text-align: center;
+    border: 1px solid #ddd;
+    background: #efeff0;
+    line-height: 44px;
+    height: 44px;
+    position: relative; 
+  }
+
+  .header-user {
+    height: 44px;
+    width: 44px;
+
+    position: absolute;
+    right: 0;
+    top:0;
+    background: url('../img/user.png') no-repeat center;
+    background-size: 16px;
+  }
+  .header-checkin {
+    height: 44px;
+    width: 44px;
+
+    position: absolute;
+    left: 0;
+    top:0;
+    background: url('../img/checkin.png') no-repeat center;
+    background-size: 22px;
+  }
+
+  .swipe-tab {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .swipe-tab a{
+    float: left;
+    text-align: center;
+    tap-highlight-color:rgba(0,0,0,0); /*使用户触碰链接时不变色，这是个移动端特性*/
+  }
+  .swipe-tab-2 a{
+    width: 50%;
+  }
+
+  .swipe-tab i {
+    position: absolute;
+    left:0;
+    transition: transform .3s ease-out;
+  }
+
+  /*清除浮动*/
+  .f-cb:after {
+    clear: both;
+    content: '';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+
+  }
+
+  .swipe-tab-on {
+    color: #ff6600;
+  }
+
+
+
+  .top-home {
+    background: #fff;
+    border-bottom: 10px solid #f5f5f5 /*带颜色的宽间隔,这里用了边框*/
+  }
+  .cover {
+    width: 100%;
+  }
+  .top-home-btn {
+    margin: 14px 0 4px;
+    width: 100%;
+    display: -webkit-box; display:box; /*在元素上设置该属性，可使其子代排列在同一水平上*/
+    /*详见https://www.cnblogs.com/whiteMu/p/5378747.html*/
+  }
+  .top-home-btn li {
+    line-height: 2.4;
+    font-style: 12px;
+    text-align: center;
+    -webkit-box-flex:1; /*占父级元素宽度的1份,有多少个子元素,总共就有多少份*/
+    -moz-box-flex:1;
+  }
+  .top-home-icon {
+    display: block;
+    width: 22px;
+    height: 22px;
+    margin: 0 auto;
+  }
+
+  .channel {
+    background: #fff;
+    border-bottom: 10px solid #f5f5f5;
+    position: relative;
+  }
+  .channel-header {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 15px 13px 14px;
+    position: relative;
+  }
+  .channel-title {
+    font: bold 13px/13px a;
+    color: rgba(0,0,0,0.9);
+
+    position: relative;
+  }
+  .channel-title > i {
+    position: absolute;
+    margin: -1px 0 0 5px;
+    padding: 3px 5px 0 5px;
+    font: 9px/9px a;
+    color: #fff;
+    background: #53ac7d;
+    border-radius: 1px;
+  }
+  .tab {
+    position: absolute;
+    right: 13px;
+    top: 9px;
+  }
+  .tab a{
+    position: relative; /*让伪类绝对定位*/
+    font: 12px/12px a;
+    padding: 16px 7px;
+    color: #999;
+  }
+  .tab a:after {
+    position: absolute;
+    top: 16px;  /*因为a中上下的padding为16*/
+    bottom: 16px;
+    right: 0;
+
+    width: 1px;
+    content: '';
+    border-right: 1px solid #ccc; /*右边框来实现竖线分割*/
+  }
+  .tab a:last-child {
+    padding-right: 0;
+  }
+  .tab a:last-child:after {
+    display: none;
+  }
+  .tab-on {
+    color: #528ae8 !important;
+  }
+
+  .list {
+    padding: 0 13px;
+  }
+  .list li {
+    padding: 17px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .list li:last-child {
+    bottom: none;
+  }
+
+  .book {
+    overflow: hidden;
+
+    /*position: relative;*/
+  }
+  .book-cover {
+    float: left;
+    position: relative;
+    width: 85px;
+    height: 113px;
+    background: #eeece9; /*图片不能显示时，显示一个背景色*/
+    border: 1px solid #f0f0f0;
+    border-radius: 1px;
+    overflow: hidden;
+  }
+  .book-cover img {
+    width: 100%;
+    height: 100%;
+    border-radius: 1px;
+  }
+  .book-finish-tag {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    /*box-sizing: border-box; 注意这里设置的100%宽度,又设置了padding,会溢出,解决方式:
+    1.overflow:hidden 2.box-sizing*/
+    padding: 25px 7px 6px;
+    font: 10px/10px a;
+    background: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,0.3)); 
+    /*创建颜色渐变的图像*/
+    
+  }
+
+  .book-info {
+    margin-left: 100px;
+    padding-top: 6px;
+    background: #fff;
+
+    
+  }
+  .book-title {
+    margin-bottom: 4px;
+    font: 16px/17px a;
+    color: rgba(0,0,0,0.9);
+    overflow: hidden;
+    text-overflow: ellipsis; /*溢出文字显示省略号*/
+    white-space: nowrap; /*不换行*/
+  }
+  .book-author {
+    margin-top: 8px;
+    font: 12px/12px a;
+    color: rgba(0,0,0,0.7);
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+  }
+  .book-summary {
+    margin-top: 8px;
+    height: 2.8em;
+    font: 12px/1.4em a;
+    color: rgba(0,0,0,0.6);
+    
+    /*text-overflow: ellipsis; 
+    white-space: nowrap; */
+
+    /*多行文字溢出显示省略的方法*/
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp:2; /*限制在一个块元素显示的文本的行数*/
+    -webkit-box-orient:vertical;
+  }
+
+  .book-tag-wrap {
+    /*position: absolute;
+    bottom: 10px;*/
+
+    margin: 10px; 
+    padding-top: 3px;
+    overflow: hidden; 
+  }
+  .book-tag {
+    float: left;
+    margin: -3px 7px 0 0;
+    padding: 3px 6px 2px;
+    max-width: 5em; /*最多六个字的宽度*/
+    font: 10px/11px a;
+    color: #53ac7d;
+    border: 1px solid #53ac7d;
+    border-radius: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+  }
+  .book-tag:last-child {
+    margin-right: 0;
+  }
+
+  .hidden-tag {
+    visibility: none;
+  }
+
+  .book-no-img-order {
+    float: left;
+    margin-top: 1px;
+    font: 13px/13px a;
+    color: rgba(237,38,15,0.9);
+  }
+  .book-no-img-info {
+    margin-left: 27px;
+  }
+  .book-no-img-info p{
+    font: 15px/15px a;
+    color: rgba(0,0,0,0.9);
+    background: #fff;
+  }
+
+
+  .channel-footer {
+      border-top: 1px solid #f0f0f0;
+      overflow: hidden;
+  }
+  .channel-footer a {
+    float: left;
+    width: 50%;
+    padding: 14px;
+    font: 13px/1.3em a;
+    color: rgba(0,0,0,0.9);
+    text-align: center;
+    box-sizing: border-box; /*这里设置padding和border为width的一部分，不然会超出50%*/
+  }
+  .channel-footer a:first-child {
+    border-right: 1px solid #f0f0f0;
+  }
+
+
+  .channel-group {
+    position: relative;
+    border-bottom:  10px solid #f0f0f0;
+  }
+  .channel-group-header {
+    position: relative;
+    padding: 10px 14px;
+    border-bottom: 1px solid #f0f0f0;
+    border-left: 6px solid #ffab18; /*左侧黄条*/
+  }
+  .channel-group-title {
+    font-size: 16px;
+    font-weight: normal;
+    color: #333;
+  }
+
+  .book-table {
+    padding: 13px 14px 5px;
+    font-size: 0; 
+    /*这里的设置可以避免其子元素（inline-block）之间的空格，否则每个元素width为33%，会溢出*/
+  }
+
+  .book-table li {
+    display: inline-block;
+    width: 33.3%;
+    vertical-align: top;
+    line-height: 1; /*当前字体大小的1倍*/
+    margin-bottom: 8px;
+  }
+  .free-book {
+    position: relative;
+    overflow: hidden;
+  }
+  .free-book .book-cover { /*之前已经有了book-cover类，这里覆盖掉一部分属性*/
+    box-shadow: 0 6px 5px -3px #aaa;
+    border: 1px solid #f0f0f0;
+    border-bottom: none;
+    float: none;
+  }
+  .free-book .info {
+    padding-top: 8px;
+  }
+  .free-book .title {
+    font-size: 13px;
+    line-height: 1.4em;
+    max-height: 2.8em;
+    overflow: hidden;
+    color: #8d8d8d;
+    font-weight: 400;
+  }
+
+  .tagRT {
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 1.4;
+    background-color: #ef2c6c;
+    color: #fff;
+    width: 100%;
+    font-size: 1.4rem; /*rem（font size of the root element）是指相对于根元素的字体大小的单位*/
+    text-align: center; 
+    transform-origin: top center;
+    transform: translateX(50%) rotate(45deg) translateY(50%) scale(0.8); 
+    /*溢出的部分被隐藏了*/
+  }
+  .tagRT.free {
+    background-color: #49ab3f;
+  }
+  .tagRT.free:before {
+    content: '\9650\514d';
+  }
+
+  .channel-group-footer {
+    display: block;
+    margin-top: 1px solid #f0f0f0;
+    text-align: center; 
+    padding: 19px 0;
+    font-size: 14px;
+  }
+
+
+
+  .subject-list {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 10px;
+  }
+  .subject-list li {
+    float: left;
+    padding: 5px;
+    box-sizing: border-box;
+    width: 50%;
+  }
+  .subject-list li img{
+    
+    width: 100%;
+  }
+/*common-header样式*/
+    .top{
+    position: relative;
+    height: 44px;
+    border-bottom: 1px solid #ddd;
+    font: 15px/45px a;
+    color: rgba(0,0,0,0.7);
+    background-color: #efeff0;
+  }
+  .top-back {
+    float: left;
+    width: 42px;
+    height: 44px;
+  }
+  .top-back:before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 16px;
+    margin: 15px 0 0 16px;
+    background: url('../img/back.png') no-repeat;
+    background-size: 10px 16px;
+  }
+  .top-to-home {
+    width: 44px;
+    height: 44px;
+    float: right;
+    background: url('http://image.read.duokan.com/mfsv2/download/fdsc3/p01eZH42sBV7/QTS90E2ZVritaa.png') no-repeat center;
+    background-size: 16px 16px;
+  }

@@ -1,0 +1,24 @@
+<style type="text/css">
+  
+</style>
+<section class="channel">
+
+  <div class="channel-header">
+    <div class="channel-title">
+      精彩专题<i>热</i>
+    </div>
+  </div>
+
+  
+    <ul class="subject-list f-cb">
+      <li v-for="(item,index) in topic" v-if="index < 2">
+        <a href="">
+          <img :src="item.ad_pic_url">
+        </a>
+      </li>
+      
+    </ul>
+  
+
+  <a href="/free" class="channel-group-footer">更多精彩专题&gt;&gt;</a>
+</section>

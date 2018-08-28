@@ -1,0 +1,133 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"> 
+    <!-- 视口宽度等于设备宽度，不可缩放 -->
+    <meta name="format-detection" content="telephone=no">
+    <!-- 电话号码不做高亮处理 -->
+    <link rel="stylesheet" type="text/css" href="static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="static/css/reader.css">
+    
+  </head>
+  <body>
+    <div id='root'>
+
+      <div class="active-layer">
+        <!-- 该透明层点击时显示控制面板，它位于界面中间，因为以后也许会有界面上部或下部的类似需求，故将其再放入一个div中，方便管理 -->
+        <!--  类名当中‘-’用于CSS,'_'用于JS  -->
+        <div class="active-layer-mid" id='active_mid'></div>
+      </div>
+
+      <div id='top-nav' class="top-nav top_bottom_nav" style="display: none">
+        <a class="back-icon" href="javascript:history.back();">
+        </a>
+        <div class="back-text">
+          返回书架
+        </div>
+      </div>
+
+      <div id='title'></div>
+      <div id='content' class='read-content'>
+        
+        
+      </div>
+      <div class='button-bar'>
+          <ul class='tab'>
+            <li id='prev-button'>上一章</li>
+            <li id='next-button'>下一章</li> <!-- 若按钮有多个，可以使用事件代理 -->
+          </ul>
+        </div>
+
+      <ul class="menu" style="display: none">
+        <li data-index="1">第一章</li>
+        <li data-index="2">第二章</li>
+        <li data-index="3">第三章</li>
+        <li data-index="4">第四章</li>
+      </ul>
+
+      <div class="bottom-nav top_bottom_nav" style="display: none" >
+
+        <div class="item menu-button" id="menu_button">
+          <div class="item-warp">
+            <!-- 把图标和文字放在一个容器中，使其居中对齐 -->
+            <div class="icon-menu"></div>
+            <div class="icon-text">
+              目录
+            </div>
+          </div>
+        </div>
+
+        <div class="item" id="font-button">
+          <div class="item-warp">
+            <div class="icon-ft"></div>
+            <div class="icon-text">
+              字体
+            </div>
+          </div>
+        </div>
+
+        <div class="item" id="night-button">
+          <div class="item-warp" style="display:none" id="day_icon">
+            <div class="icon-day"></div>
+            <div class="icon-text">
+              白天
+            </div>
+          </div>
+          <div class="item-warp" id="night_icon">
+            <div class="icon-night"></div>
+            <div class="icon-text">
+              夜间
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 注意：因为黑色背景是透明的，而其上的文字不透明，所以黑色背景单独作为一层，放在下面 -->
+      <div class="nav-panel-bk font_nav" id="font-container" style="display: none"></div>
+      <div class="nav-panel font_nav" id="font-container" style="display: none">
+
+        <div class="child-mod">
+          <span>字号</span>
+          <button id="large-font" class="font-size-button">
+            大
+          </button>
+          <!-- 第二个按钮有左边距，也可以用伪类选择器实现 -->
+          <button id="small-font" class="font-size-button" style="margin-left:10px;">
+            小
+          </button>
+        </div>
+
+        <div class="child-mod" id="bk-container">
+          <span>背景</span>
+          <div class="bk-container">
+            <div class="bk-container-current" style="display: none"></div> <!-- 内层圆做选中效果 -->
+          </div>
+          <div class="bk-container">
+            <div class="bk-container-current" style="display: none"></div> <!-- 内层圆做选中效果 -->
+          </div>
+          <div class="bk-container">
+            <div class="bk-container-current" style="display: none"></div> <!-- 内层圆做选中效果 -->
+          </div>
+          <div class="bk-container">
+            <div class="bk-container-current" style="display: none"></div> <!-- 内层圆做选中效果 -->
+          </div>
+          <div class="bk-container">
+            <div class="bk-container-current" style="display: none"></div> <!-- 内层圆做选中效果 -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+  <script src="static/script/zepto.js"></script>
+  <script type="text/javascript">
+    window.jQuery = $; 
+    // 为了在zepto中调用下面两个Jquery插件，这里的$是zepto中的
+  </script>
+  <script src="static/script/jquery.base64.js"></script>
+  <script src="static/script/jquery.jsonp.js"></script>
+  <script src="static/script/pages/reader.js"></script>
+
+  
+</html>

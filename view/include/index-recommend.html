@@ -1,0 +1,42 @@
+<style type="text/css">
+  
+</style>
+<section class="channel">
+  <div class="channel-header">
+    <div class="channel-title">
+      重磅推荐<i>推</i>
+    </div>
+  </div>
+  <ul class="list">
+    <!-- 书籍列表中有两种书籍项(有图/无图) -->
+
+    <li class="book">
+      <a :href="'/book?id=' + recommend[0].fiction_id ">
+
+        <div class="book-cover">
+          <img alt="{{recommend[0].title}}" :src="recommend[0].cover">
+          <p class="book-finish-tag" v-if="recommend[0].finish">完结</p>
+        </div>
+        <div class="book-info">
+          <p class="book-title">{{recommend[0].title}}</p>
+          <p class="book-author">{{recommend[0].authors}}</p>
+          <p class="book-summary">{{recommend[0].summary}}</p>
+          <div class="book-tag-wrap">  
+            <div class="book-tag" v-for="(tag,index) in recommend[0].tags ">{{tag}}</div>
+          </div>
+        </div>
+
+      </a>
+    </li>
+
+    <li class="book book-no-img" v-for="(item,index) in recommend" v-if="index > 0 && index < 9">
+      <a :href="'/book?id=' + item.fiction_id">
+        <span class="book-no-img-order">0{{index}}</span>
+        <div class="book-no-img-info">
+          <p>{{item.title}}</p>
+        </div>        
+      </a>
+
+    </li>
+  </ul>
+</section>
