@@ -1,9 +1,4 @@
-var screenWidth = $(window.width);
-if(screenWidth < 320) {
-  screenWidth = 320
-};
-var offset = $($('.swipe-tab').find('a')[0]).offset;
-var header_tab_width = offset.width;
+
 $.get('/home',function(d) {
   new Vue({
     el : '#app',
@@ -16,13 +11,6 @@ $.get('/home',function(d) {
       male:d.items[4].data.data,
       free:d.items[5].data.data,
       topic:d.items[6].data.data,
-      position:0,
-      headerPosition : 0,
-      tab1Class : 'swipe-tab-on',
-      tab2Class : '',
-      screen_width: screenWidth,
-      double_screen_width : 2 * screenWidth,
-      header_tab_width,
     },
     methods: {
    
